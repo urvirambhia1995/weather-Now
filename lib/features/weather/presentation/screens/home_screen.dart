@@ -48,6 +48,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       _fadeController.reset();
       ref.read(weatherControllerProvider.notifier).searchCity(city);
       _fadeController.forward();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('City cannot be empty'),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
     }
   }
 
